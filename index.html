@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>З Днем народження! ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #12001f, #31004f, #090014);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ENTRY */
+
+#entry {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        linear-gradient(rgba(0,0,0,.65), rgba(20,0,40,.8)),
+        url("photo1.jpg") center/cover;
+    transition: 1s;
+}
+
+.entry-box {
+    width: 90%;
+    max-width: 600px;
+    padding: 50px 35px;
+    text-align: center;
+    border-radius: 30px;
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 30px 100px rgba(0,0,0,.6);
+    border: 1px solid rgba(255,255,255,.2);
+}
+
+.entry-icon {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.entry-box h1 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.entry-box p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #eee;
+}
+
+.enter-btn,
+.hero-btn {
+    margin-top: 30px;
+    padding: 17px 35px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #ff4da6, #9d4edd);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .4s;
+    box-shadow: 0 10px 30px rgba(255,77,166,.4);
+}
+
+.enter-btn:hover,
+.hero-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 15px 40px rgba(255,77,166,.7);
+}
+
+/* MAIN */
+
+#main {
+    display: none;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    background:
+        radial-gradient(circle at center, rgba(255,77,166,.2), transparent 50%);
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 90px);
+    background: linear-gradient(90deg, #ff72c6, #c77dff, #fff);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: titleGlow 3s infinite alternate;
+}
+
+.hero h2 {
+    font-size: clamp(25px, 4vw, 45px);
+    margin-top: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-top: 25px;
+    color: #ddd;
+}
+
+@keyframes titleGlow {
+    from {
+        filter: drop-shadow(0 0 5px #ff4da6);
+    }
+    to {
+        filter: drop-shadow(0 0 25px #c77dff);
+    }
+}
+
+/* SECTIONS */
+
+section:not(#entry) {
+    padding: 100px 20px;
+}
+
+.container {
+    max-width: 1250px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #bbb;
+    font-size: 18px;
+    margin-bottom: 60px;
+}
+
+/* MESSAGE */
+
+.message-section {
+    background: rgba(255,255,255,.03);
+}
+
+.message {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px;
+    border-radius: 35px;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 20px 70px rgba(0,0,0,.4);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1s;
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message h2 {
+    font-size: 35px;
+    margin-bottom: 25px;
+    color: #ff80c8;
+}
+
+.message p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #eee;
+}
+
+/* SISTER */
+
+.sister-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.sister-card img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 35px;
+    box-shadow: 0 25px 70px rgba(0,0,0,.5);
+}
+
+.sister-text h2 {
+    font-size: 45px;
+    color: #ff80c8;
+    margin-bottom: 25px;
+}
+
+.sister-text p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+/* FAMILY */
+
+.family {
+    background: rgba(255,255,255,.03);
+}
+
+.family-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.family-card img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 35px;
+    box-shadow: 0 25px 70px rgba(0,0,0,.5);
+}
+
+.family-text {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+/* GALLERY */
+
+.gallery {
+    max-width: 1250px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.gallery-item {
+    height: 400px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,.45);
+    transition: .5s;
+}
+
+.gallery-item:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+    height: 825px;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .7s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.07);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,.8));
+    opacity: 0;
+    transition: .4s;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay span {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* FINAL */
+
+.final {
+    text-align: center;
+    background:
+        radial-gradient(circle, rgba(255,77,166,.2), transparent 60%);
+}
+
+.final h2 {
+    font-size: 55px;
+    margin-bottom: 25px;
+}
+
+.final p {
+    max-width: 750px;
+    margin: auto;
+    font-size: 21px;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+.heart {
+    position: fixed;
+    bottom: -50px;
+    font-size: 25px;
+    pointer-events: none;
+    animation: heartFloat 5s linear forwards;
+    z-index: 2000;
+}
+
+@keyframes heartFloat {
+    from {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    width: 10px;
+    height: 18px;
+    z-index: 3000;
+    pointer-events: none;
+    animation: fall 4s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 800px) {
+
+    .sister-card,
+    .family-card {
+        grid-template-columns: 1fr;
+    }
+
+    .sister-card img,
+    .family-card img {
+        height: 450px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery-item:first-child {
+        grid-column: span 2;
+        grid-row: span 1;
+        height: 450px;
+    }
+
+    .gallery-item {
+        height: 300px;
+    }
+
+    .section-title {
+        font-size: 35px;
+    }
+}
+
+@media(max-width: 500px) {
+
+    section:not(#entry) {
+        padding: 70px 15px;
+    }
+
+    .entry-box {
+        padding: 35px 20px;
+    }
+
+    .entry-box h1 {
+        font-size: 30px;
+    }
+
+    .message {
+        padding: 30px 20px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item:first-child {
+        grid-column: span 1;
+        height: 400px;
+    }
+
+    .gallery-item {
+        height: 350px;
+    }
+
+    .final h2 {
+        font-size: 40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ВХІД -->
+
+<section id="entry">
+
+    <div class="entry-box">
+
+        <div class="entry-icon">🎁</div>
+
+        <h1>Особливий вхід</h1>
+
+        <p>
+            Цей сайт створений спеціально для одного особливого дня.
+            <br><br>
+            Вхід тільки для іменинниці та її рідних ❤️
+        </p>
+
+        <button class="enter-btn" onclick="enterSite()">
+            Увійти на свято ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ОСНОВНИЙ САЙТ -->
+
+<main id="main">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Сьогодні твій день ✨</h1>
+
+            <h2>З Днем народження! 🎂</h2>
+
+            <p>
+                Сьогодні особливий день, адже він присвячений тобі ❤️
+            </p>
+
+            <button class="hero-btn" onclick="openMessage()">
+                Відкрити привітання 💌
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ПРИВІТАННЯ -->
+
+    <section class="message-section" id="messageSection">
+
+        <div class="container">
+
+            <div class="message" id="message">
+
+                <h2>Для найкращої сестрички ❤️</h2>
+
+                <p>
+                    Вітаю тебе з Днем народження! 🎉
+                    <br><br>
+
+                    Бажаю тобі багато щастя, радості,
+                    хороших людей поруч і здійснення
+                    усіх твоїх мрій.
+                    <br><br>
+
+                    Нехай кожен день приносить тобі
+                    багато приємних моментів,
+                    посмішок і незабутніх спогадів.
+                    <br><br>
+
+                    Залишайся такою ж доброю,
+                    веселою та особливою людиною.
+                    <br><br>
+
+                    Ми тебе дуже любимо! ❤️
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- СЕСТРА -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="sister-card">
+
+                <img src="https://i.postimg.cc/Wz7CT8Rm/photo-2026-09-26-23-26-29.jpg">
+
+                <div class="sister-text">
+
+                    <h2>Наша іменинниця 🌸</h2>
+
+                    <p>
+                        Сьогодні весь цей сайт створений
+                        спеціально для тебе.
+                        <br><br>
+
+                        Тут зібрані наші фотографії,
+                        спогади та маленькі моменти,
+                        які хочеться зберегти назавжди.
+                        <br><br>
+
+                        Нехай таких моментів у твоєму житті
+                        буде ще дуже багато! ❤️
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- СІМ'Я -->
+
+    <section class="family">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Найважливіше — це сім'я ❤️
+            </h2>
+
+            <p class="section-subtitle">
+                Люди, які завжди будуть поруч
+            </p>
+
+            <div class="family-card">
+
+                <div class="family-text">
+
+                    <p>
+                        Сім'я — це люди, з якими можна
+                        сміятися, говорити про все на світі
+                        та просто бути собою.
+                        <br><br>
+
+                        Дякую за всі наші спільні моменти,
+                        жарти, пригоди та спогади.
+                        <br><br>
+
+                        Нехай попереду нас чекає
+                        ще багато щасливих днів! 🥰
+                    </p>
+
+                </div>
+
+                <img src="https://i.postimg.cc/KzCB4hby/photo-2026-09-26-23-36-07.jpg">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ГАЛЕРЕЯ 9 ФОТО -->
+
+    <section class="gallery-section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Наші моменти 📸
+            </h2>
+
+            <p class="section-subtitle">
+                9 фотографій — 9 маленьких історій ❤️
+            </p>
+
+            <div class="gallery">
+
+                <div class="gallery-item">
+
+                    <img src="https://i.postimg.cc/j5nnp37v/photo-2026-09-26-23-23-14.jpg">
+
+                    <div class="gallery-overlay">
+                        <span>Наша іменинниця ❤️</span>
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img src="https://i.postimg.cc/9frD9gJV/photo-2026-09-26-23-25-14.jpg">
+
+                    <div class="gallery-overlay">
+                        <span>Наша сім'я 👨‍👩‍👧‍👦</span>
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img src="https://i.postimg.cc/zDnVTgSL/photo-2026-09-26-23-24-14.jpg" >
+
+                    <div class="gallery-overlay">
+                        <span>Щасливий момент ✨</span>
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img src="https://i.postimg.cc/KjFc00rR/photo-2026-09-26-23-23-36.jpg">
+
+                    <div class="gallery-overlay">
+                        <span>Незабутній день ❤️</span>
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img src="https://i.postimg.cc/QxfNqkBJ/photo-2026-09-26-23-21-39.jpg">
+
+                    <div class="gallery-overlay">
+                        <span>Наші спогади 🥰</span>
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img src="https://i.postimg.cc/FKL9mMT3/photo-2026-09-26-23-24-56.jpg">
+
+                    <div class="gallery-overlay">
+                        <span>Ще один момент 📸</span>
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img src="https://i.postimg.cc/1RHy9crM/photo-2026-09-26-23-22-25.jpg">
+
+                    <div class="gallery-overlay">
+                        <span>Разом ❤️</span>
+                    </div>
+
+                </div>
+
+
+                <!-- НОВЕ ФОТО 8 -->
+
+                <div class="gallery-item">
+
+                    <img src="https://i.postimg.cc/g2fWMMGv/photo-2026-09-26-23-22-46.jpg">
+
+                    <div class="gallery-overlay">
+                        <span>Ще один наш момент ❤️</span>
+                    </div>
+
+                </div>
+
+
+                <!-- НОВЕ ФОТО 9 -->
+
+                <div class="gallery-item">
+
+                    <img src="https://i.postimg.cc/FKL9mMT3/photo-2026-09-26-23-24-56.jpg">
+
+                    <div class="gallery-overlay">
+                        <span>Незабутній момент ✨</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ФІНАЛ -->
+
+    <section class="final">
+
+        <div class="container">
+
+            <h2>Ще раз з Днем народження! 🎂❤️</h2>
+
+            <p>
+                Нехай цей рік буде наповнений
+                щастям, радістю, пригодами,
+                новими мріями та їх здійсненням.
+                <br><br>
+
+                Ми дуже тебе любимо! ❤️
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- МУЗИКА -->
+
+<audio id="birthdayMusic" preload="auto">
+
+    <source src="birthday.mp3" type="audio/mpeg">
+
+</audio>
+
+
+<script>
+
+function enterSite() {
+
+    const entry = document.getElementById("entry");
+
+    entry.style.opacity = "0";
+
+    setTimeout(() => {
+
+        entry.style.display = "none";
+
+        document.getElementById("main").style.display = "block";
+
+        createConfetti(100);
+
+    }, 1100);
+
+}
+
+
+function openMessage() {
+
+    const message = document.getElementById("message");
+
+    message.classList.add("show");
+
+
+    const music = document.getElementById("birthdayMusic");
+
+    music.currentTime = 0;
+
+    music.play().catch(() => {});
+
+
+    createConfetti(180);
+
+    createHearts(35);
+
+
+    setTimeout(() => {
+
+        document
+            .getElementById("messageSection")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }, 300);
+
+}
+
+
+/* КОНФЕТТІ */
+
+function createConfetti(amount) {
+
+    for (let i = 0; i < amount; i++) {
+
+        const confetti = document.createElement("div");
+
+        confetti.className = "confetti";
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+        confetti.style.background =
+            "hsl(" +
+            Math.random() * 360 +
+            ", 100%, 65%)";
+
+        confetti.style.animationDuration =
+            2 + Math.random() * 4 + "s";
+
+        confetti.style.transform =
+            "rotate(" +
+            Math.random() * 360 +
+            "deg)";
+
+        document.body.appendChild(confetti);
+
+
+        setTimeout(() => {
+
+            confetti.remove();
+
+        }, 6000);
+
+    }
+
+}
+
+
+/* СЕРЦЯ */
+
+function createHearts(amount) {
+
+    for (let i = 0; i < amount; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML =
+            ["❤️", "💖", "💕", "💗", "💜"][
+                Math.floor(Math.random() * 5)
+            ];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            3 + Math.random() * 4 + "s";
+
+        heart.style.fontSize =
+            18 + Math.random() * 25 + "px";
+
+        document.body.appendChild(heart);
+
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        }, 7000);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```
